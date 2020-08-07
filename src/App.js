@@ -1,24 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
+import 'bulma/css/bulma.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 import './App.css';
+
+import ExpenseBalance from './components/ExpenseBalance';
+import ExpenseAmount from './components/ExpenseAmount';
+import ExpenseHistory from './components/ExpenseHistory';
+import ExpenseForm from './components/ExpenseForm';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="App-container">
+        <p className="title mb-5">Expense Tracker</p>
+
+        <ExpenseBalance />
+
+        <ExpenseAmount />
+
+        <p className="has-text-weight-bold mb-3">History</p>
+        <ExpenseHistory />
+
+        <p className="has-text-weight-bold mb-3">Add New Transaction</p>
+        <ExpenseForm />
+
+      </div>
     </div>
   );
 }
