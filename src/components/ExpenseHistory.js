@@ -1,18 +1,21 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { ExpenseContext } from "../store/ExpenseContext";
+
+import ExpenseItem from "./ExpenseItem";
 
 const ExpenseHistory = () => {
-    return (
-        <article className="card message is-success">
-            <div className="message-body">
-                <p>
-                    Lorem ipsum dolor sit amet.
-              <br />
-                    <span className="has-text-weight-bold">Rp300</span>
-                </p>
-                <button className="delete"></button>
-            </div>
-        </article>
-    )
-}
+  const { transactions } = useContext(ExpenseContext);
 
-export default ExpenseHistory
+  return (
+    <div className="panel" style={{ backgroundColor: "white" }}>
+      {transactions.map((transaction) => (
+        <ExpenseItem
+          key={transaction.id}
+          transaction={transaction}
+        ></ExpenseItem>
+      ))}
+    </div>
+  );
+};
+
+export default ExpenseHistory;

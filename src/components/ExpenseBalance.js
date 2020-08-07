@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useContext } from "react";
+import { ExpenseContext } from "../store/ExpenseContext";
 
 const ExpenseBalance = () => {
-    return (
-        <div className="mb-5">
-            <p className="heading">Your Balance</p>
-            <p className="title">3,456</p>
-        </div>
-    )
-}
+  const { transactions } = useContext(ExpenseContext);
+  const amounts = transactions.map((trasanction) => trasanction.amount);
+  const balance = amounts.reduce((result, amount) => {
+    return result + amount;
+  }, 0);
 
-export default ExpenseBalance
+  return (
+    <div className="mb-5">
+      <p className="heading">Your Balance</p>
+      <p className="title">{balance}</p>
+    </div>
+  );
+};
+
+export default ExpenseBalance;

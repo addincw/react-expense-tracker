@@ -10,17 +10,17 @@
   width: 480px;
   padding: 30px 0;
 }
-.App-container .message .message-body {
+.App-container .panel .panel-block {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.App-container .message .message-body .delete {
+.App-container .panel .panel-block .delete {
   display: none;
 }
-.App-container .message:hover {
+.App-container .panel-block:hover {
   cursor: pointer;
 }
-.App-container .message:hover .delete {
+.App-container .panel-block:hover .delete {
   display: block;
 }
